@@ -1,0 +1,60 @@
+<div class="center">
+  {{#Term Audio}}{{Term Audio}}{{/Term Audio}}
+  {{#Sentence Audio}}{{Sentence Audio}}{{/Sentence Audio}}
+</div>
+<div class="top-row">
+  <div style="flex: 1;">
+    <div id="word">
+      {{#Furigana}}{{furigana:Furigana}}{{/Furigana}}
+      {{^Furigana}}{{Term}}{{/Furigana}}
+    </div>
+  </div>
+
+  {{#Image}}
+  <div class="image-container" onclick="showOverlay(this)">
+    {{Image}}
+  </div>
+  {{/Image}}
+</div>
+
+<div class="divider"></div>
+
+
+<div id="sentence">
+  {{#Cloze Inside}}
+    {{Cloze Before}}<span class="cloze">{{Cloze Inside}}</span>{{Cloze After}}
+  {{/Cloze Inside}}
+  {{^Cloze Inside}}
+    {{Sentence}}
+  {{/Cloze Inside}}
+</div>
+
+{{#Meaning}}<div class="translation">{{Meaning}}    {{#Pitch Accent}}
+      <div class="pitch">{{Pitch Accent}}</div>
+    {{/Pitch Accent}}</div>{{/Meaning}}
+{{#Expanded Meaning}}<div class="translation">{{Expanded Meaning}}</div>{{/Expanded Meaning}}
+
+{{#Collapsed Meaning}}
+<details>
+  <summary>Extra</summary>
+  <div class="translation">{{Collapsed Meaning}}</div>
+</details>
+{{/Collapsed Meaning}}
+
+<div id="overlay" onclick="hideOverlay()">
+  <img id="overlay-img" src="" />
+</div>
+
+<script>
+function showOverlay(el) {
+  const img = el.querySelector('img');
+  if (!img) return;
+  const overlay = document.getElementById('overlay');
+  const overlayImg = document.getElementById('overlay-img');
+  overlayImg.src = img.src;
+  overlay.style.display = 'flex';
+}
+function hideOverlay() {
+  document.getElementById('overlay').style.display = 'none';
+}
+</script>

@@ -1,0 +1,206 @@
+/* Minimal, dark, responsive CSS for Anki card
+   FULL CSS — ONLY FONT SIZES ADJUSTED (RELATIVE)
+*/
+
+:root{
+  --card-bg: rgba(0,0,0,1);
+  --muted: #cfcfcf;
+  --text: #eaeaea;
+  --accent: #ffeb3b;
+  --max-width: 980px;
+}
+
+html,body{
+  /* BASE SIZE — controls all text */
+  font-size: 19px;
+  height:100%;
+  margin:0;
+  font-family: "Noto Sans JP", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  -webkit-font-smoothing:antialiased;
+  -moz-osx-font-smoothing:grayscale;
+  background: transparent;
+}
+
+.card{
+  box-sizing: border-box;
+  max-width: var(--max-width);
+  margin: 28px auto;
+  padding: 24px;
+  border-radius: 10px;
+  background: var(--card-bg);
+  color: var(--text);
+
+  line-height:1.55;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+/* ---------------- Top layer ---------------- */
+.top-row{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  gap: 20px;
+}
+
+.top-row > div:first-child{
+  display:flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap:8px;
+}
+
+#word{
+  font-family: "Noto Serif JP", "Times New Roman", serif;
+  font-size: 3.4rem;
+  line-height:1.02;
+  margin:0;
+  text-align:center;
+  word-break: break-word;
+}
+
+.pitch,
+.misc-info{
+  color: var(--muted);
+  font-size: 0.79rem;
+}
+
+/* Image */
+.image-container{
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  width:100%;
+  height:100%;
+  max-height: 280px;
+  overflow:hidden;
+  border-radius:8px;
+}
+.image-container img{
+  max-width:100%;
+  max-height:100%;
+  object-fit:contain;
+}
+
+/* ---------------- Sentence ---------------- */
+#sentence{
+  font-size: 1.5rem;
+  line-height:1.6;
+  text-align:center;
+  margin:0 auto;
+}
+
+#sentence .cloze{
+  color: var(--accent);
+  font-weight:700;
+  text-decoration: underline dotted rgba(255,235,59,0.12);
+}
+
+/* Sentence Translation */
+.sentence-translation{
+  font-size: 0.8rem;
+}
+
+/* ---------------- Dictionary / Glossary ---------------- */
+.translation{
+  color: #d3d3d3;
+  font-size: 0.8rem;
+  padding: 8px 6px;
+  border-radius:6px;
+}
+
+.divider{
+  height:1px;
+  background: rgba(255,255,255,0.04);
+  width:100%;
+}
+
+/* Overlay */
+#overlay{
+  position: fixed;
+  inset: 0;
+  display: none;
+  align-items:center;
+  justify-content:center;
+  background: rgba(0,0,0,0.96);
+  z-index:9999;
+  padding:18px;
+}
+#overlay img{
+  max-width:96%;
+  max-height:92%;
+  border-radius:8px;
+}
+
+/* Tags */
+.tags{
+  font-size: 0.7rem;
+}
+
+/* Frequency */
+.frequency{
+  font-size: 1.05rem;
+}
+
+/* Frequency content */
+.frequency-content,
+.frequency .content{
+  font-size: 0.74rem;
+}
+
+/* ---------------- Mobile ---------------- */
+@media (max-width: 640px){
+  .card{
+    padding:14px;
+    margin:12px;
+  }
+  .top-row{
+    grid-template-columns: 1fr;
+    gap:10px;
+  }
+  .image-container{
+    max-height: 220px;
+  }
+  #word{
+    font-size: clamp(2rem, 12vw, 3.5rem);
+  }
+}
+
+/* ---------------- Desktop wide ---------------- */
+@media (min-width: 900px){
+  .card{
+    max-width: 860px;
+    margin: 36px auto;
+    padding: 28px;
+    gap: 28px;
+  }
+  .top-row{
+    gap: 28px;
+    margin-bottom: 6px;
+  }
+  #sentence{
+    margin-top: 8px;
+    margin-bottom: 10px;
+  }
+  .translation{
+    margin-top: 6px;
+  }
+  .image-container{
+    max-height: 320px;
+  }
+}
+
+.hidden {
+  display: none !important;
+}
+
+.clickable {
+  cursor: pointer;
+  user-select: none;
+}
+
+.clickable:hover {
+  opacity: 0.9;
+}

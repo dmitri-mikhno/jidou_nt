@@ -1,0 +1,17 @@
+<div id="word" class="clickable">{{Term}}</div>
+
+<div id="sentence" class="hidden">
+  {{#Cloze Inside}}
+    {{Cloze Before}}<span class="cloze">{{Cloze Inside}}</span>{{Cloze After}}
+  {{/Cloze Inside}}
+  {{^Cloze Inside}}
+    {{Sentence}}
+  {{/Cloze Inside}}
+</div>
+
+<script>
+document.getElementById('word').addEventListener('click', function() {
+  const sentence = document.getElementById('sentence');
+  sentence.classList.toggle('hidden');
+});
+</script>
