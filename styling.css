@@ -5,7 +5,7 @@
 :root{
   --card-bg: rgba(0,0,0,1);
   --muted: #cfcfcf;
-  --text: #eaeaea;
+  --text: #ffffff;
   --accent: #ffeb3b;
   --max-width: 980px;
 }
@@ -86,7 +86,8 @@ html,body{
 
 /* ---------------- Sentence ---------------- */
 #sentence{
-  font-size: 1.5rem;
+  font-size: 1.4rem;
+  font-weight:500;
   line-height:1.6;
   text-align:center;
   margin:0 auto;
@@ -94,7 +95,7 @@ html,body{
 
 #sentence .cloze{
   color: var(--accent);
-  font-weight:700;
+  font-weight:500;
   text-decoration: underline dotted rgba(255,235,59,0.12);
 }
 
@@ -164,7 +165,7 @@ html,body{
     max-height: 220px;
   }
   #word{
-    font-size: clamp(2rem, 12vw, 3.5rem);
+    font-size: clamp(3rem, 12vw, 3.5rem);
   }
 }
 
@@ -183,7 +184,8 @@ html,body{
   #sentence{
     margin-top: 8px;
     margin-bottom: 10px;
-  }
+	 font-size: 1.6rem;
+	}
   .translation{
     margin-top: 6px;
   }
