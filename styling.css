@@ -6,19 +6,34 @@
   --card-bg: rgba(0,0,0,1);
   --muted: #cfcfcf;
   --text: #ffffff;
-  --accent: #ffeb3b;
+  --accent: #FBFF33;
   --max-width: 980px;
+  
+  /* Font sizes */
+  --font-size-base: 19px;
+  --font-size-word: 3.4rem;
+  --font-size-word-mobile-min: 3rem;
+  --font-size-word-mobile-max: 3.5rem;
+  --font-size-sentence: 1.5rem;
+  --font-size-sentence-mobile-min: 1.3rem;
+  --font-size-sentence-mobile-max: 1.5rem;
+  --font-size-pitch: 0.79rem;
+  --font-size-translation: 0.8rem;
+  --font-size-tags: 0.7rem;
+  --font-size-frequency: 1.05rem;
+  --font-size-frequency-content: 0.74rem;
 }
 
 html,body{
   /* BASE SIZE — controls all text */
-  font-size: 19px;
+  font-size: var(--font-size-base);
   height:100%;
   margin:0;
   font-family: "Noto Sans JP", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
   -webkit-font-smoothing:antialiased;
   -moz-osx-font-smoothing:grayscale;
   background: transparent;
+  color: var(--text);
 }
 
 .card{
@@ -54,17 +69,19 @@ html,body{
 
 #word{
   font-family: "Noto Serif JP", "Times New Roman", serif;
-  font-size: 3.4rem;
+  font-size: var(--font-size-word);
   line-height:1.02;
   margin:0;
   text-align:center;
   word-break: break-word;
+  color: var(--text);
 }
 
 .pitch,
 .misc-info{
   color: var(--muted);
-  font-size: 0.79rem;
+  font-size: var(--font-size-pitch);
+  margin-top: 0.5rem;
 }
 
 /* Image */
@@ -86,11 +103,12 @@ html,body{
 
 /* ---------------- Sentence ---------------- */
 #sentence{
-  font-size: 1.4rem;
+  font-size: var(--font-size-sentence);
   font-weight:500;
   line-height:1.6;
   text-align:center;
   margin:0 auto;
+  color: var(--text);
 }
 
 #sentence .cloze{
@@ -101,13 +119,13 @@ html,body{
 
 /* Sentence Translation */
 .sentence-translation{
-  font-size: 0.8rem;
+  font-size: var(--font-size-translation);
 }
 
 /* ---------------- Dictionary / Glossary ---------------- */
 .translation{
-  color: #d3d3d3;
-  font-size: 0.8rem;
+  color: var(--muted);
+  font-size: var(--font-size-translation);
   padding: 8px 6px;
   border-radius:6px;
 }
@@ -137,18 +155,18 @@ html,body{
 
 /* Tags */
 .tags{
-  font-size: 0.7rem;
+  font-size: var(--font-size-tags);
 }
 
 /* Frequency */
 .frequency{
-  font-size: 1.05rem;
+  font-size: var(--font-size-frequency);
 }
 
 /* Frequency content */
 .frequency-content,
 .frequency .content{
-  font-size: 0.74rem;
+  font-size: var(--font-size-frequency-content);
 }
 
 /* ---------------- Mobile ---------------- */
@@ -165,7 +183,10 @@ html,body{
     max-height: 220px;
   }
   #word{
-    font-size: clamp(3rem, 12vw, 3.5rem);
+    font-size: clamp(var(--font-size-word-mobile-min), 12vw, var(--font-size-word-mobile-max));
+  }
+  #sentence{
+    font-size: clamp(var(--font-size-sentence-mobile-min), 4vw, var(--font-size-sentence-mobile-max));
   }
 }
 
@@ -184,8 +205,7 @@ html,body{
   #sentence{
     margin-top: 8px;
     margin-bottom: 10px;
-	 font-size: 1.6rem;
-	}
+  }
   .translation{
     margin-top: 6px;
   }
