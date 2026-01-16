@@ -2,9 +2,34 @@
    FULL CSS — ONLY FONT SIZES ADJUSTED (RELATIVE)
 */
 
+/* Use the exact family names used later in your CSS */
+@font-face {
+  font-family: "Noto Sans JP";
+  src: url("_NotoSansJP.ttf") format("truetype");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Noto Serif JP";
+  src: url("_NotoSerifJP.ttf") format("truetype");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Klee One";
+  src: url("_KleeOne-SemiBold.ttf") format("truetype");
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+
 :root{
   --card-bg: rgba(0,0,0,1);
-  --muted: #cfcfcf;
+  --muted: #ffffff;
   --text: #ffffff;
   --accent: #FBFF33;
   --max-width: 980px;
@@ -167,62 +192,4 @@ html,body{
 .frequency-content,
 .frequency .content{
   font-size: var(--font-size-frequency-content);
-}
-
-/* ---------------- Mobile ---------------- */
-@media (max-width: 640px){
-  .card{
-    padding:14px;
-    margin:12px;
-  }
-  .top-row{
-    grid-template-columns: 1fr;
-    gap:10px;
-  }
-  .image-container{
-    max-height: 220px;
-  }
-  #word{
-    font-size: clamp(var(--font-size-word-mobile-min), 12vw, var(--font-size-word-mobile-max));
-  }
-  #sentence{
-    font-size: clamp(var(--font-size-sentence-mobile-min), 4vw, var(--font-size-sentence-mobile-max));
-  }
-}
-
-/* ---------------- Desktop wide ---------------- */
-@media (min-width: 900px){
-  .card{
-    max-width: 860px;
-    margin: 36px auto;
-    padding: 28px;
-    gap: 28px;
-  }
-  .top-row{
-    gap: 28px;
-    margin-bottom: 6px;
-  }
-  #sentence{
-    margin-top: 8px;
-    margin-bottom: 10px;
-  }
-  .translation{
-    margin-top: 6px;
-  }
-  .image-container{
-    max-height: 320px;
-  }
-}
-
-.hidden {
-  display: none !important;
-}
-
-.clickable {
-  cursor: pointer;
-  user-select: none;
-}
-
-.clickable:hover {
-  opacity: 0.9;
 }
